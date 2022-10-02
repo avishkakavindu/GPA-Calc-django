@@ -58,7 +58,7 @@ class User(AbstractUser):
     subject = models.ManyToManyField(Subject, related_name='users', through='SubjectMark')
 
     def __str__(self):
-        return self.register_number
+        return self.username
 
 
 class Grade(models.Model):
