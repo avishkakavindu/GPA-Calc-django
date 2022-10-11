@@ -32,7 +32,6 @@
         }
 
         .form-signin input[type="password"] {
-          margin-bottom: 10px;
           border-top-left-radius: 0;
           border-top-right-radius: 0;
         }
@@ -41,12 +40,12 @@
   <body>
     <header class="p-3 bg-dark text-white">
         <div class="container">
-          <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-            <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+          <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-sm-start">
+            <a href="/" class="d-flex align-items-center mb-2 mb-sm-0 text-white text-decoration-none">
               <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"/></svg>
             </a>
 
-            <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+            <ul class="nav col-12 col-sm-auto me-sm-auto mb-2 justify-content-center mb-sm-0">
               <li><a href="#" class="nav-link px-2 text-secondary">Home</a></li>
               <li><a href="#" class="nav-link px-2 text-white">Add Results</a></li>
             </ul>
@@ -68,6 +67,38 @@
 
     <main>
         <div class="container">
+            <!-- Alerts -->
+            {% if messages %}
+                {% for message in messages %}
+        {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+            <div class="alert alert-success alert-dismissible fade show msg" role="alert">
+                <strong>Success! </strong>
+                {{ message }}
+                <a class="close" data-dismiss="alert" aria-label="Close">
+                    <i class="fa fa-times" aria-hidden="true"></i>
+                </a>
+            </div>
+        {% endif %}
+        {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+            <div class="alert alert-danger alert-dismissible fade show msg" role="alert">
+                <strong>Error! </strong>
+                {{ message }}
+                <a class="close" data-dismiss="alert" aria-label="Close">
+                    <i class="fa fa-times" aria-hidden="true"></i>
+                </a>
+            </div>
+        {% endif %}
+        {% if message.level == DEFAULT_MESSAGE_LEVELS.INFO %}
+            <div class="alert alert-info alert-dismissible fade show msg" role="alert">
+                {{ message }}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        {% endif %}
+    {% endfor %}
+            {% endif %}
+
             {% block content %}
 
             {% endblock %}

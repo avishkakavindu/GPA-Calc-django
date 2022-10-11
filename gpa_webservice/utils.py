@@ -33,3 +33,4 @@ class Util:
 
         msg = EmailMultiAlternatives(data['email_subject'], msg_plain, config('EMAIL_HOST_USER'), [data['receiver']])
         msg.attach_alternative(msg_html, "text/html")
+        msg.send()

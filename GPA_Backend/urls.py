@@ -23,7 +23,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include("django.contrib.auth.urls")),
     path('', views.HomeView.as_view(), name='index'),
-    path('api/v1.0/', include('gpa_webservice.urls'), name='api_v1.0')
+    path('', include('gpa_webservice.urls'), name='api_v1.0')
 ]
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -10,10 +10,11 @@ from django.shortcuts import redirect
 from gpa_webservice.forms import SignUpForm
 from gpa_webservice.models import User
 from gpa_webservice.utils import Util, token_generator
+from django.contrib.auth import login
 
 
 class HomeView(generic.TemplateView):
-    template_name = 'base.html'
+    template_name = 'content/results.html'
 
 
 class SignUpView(generic.CreateView):
@@ -47,6 +48,8 @@ class SignUpView(generic.CreateView):
             },
             'email_subject': 'Verify your Email',
         }
+
+        print('\n\n', payload, '\n')
 
         Util.send_email(payload)
         messages.success(request, 'Please Confirm your email to complete registration.')
@@ -85,3 +88,25 @@ class SignUpView(generic.CreateView):
         # if no record found pass to form_valid
         return super().post(request, *args, **kwargs)
 
+
+class UserActivationView(generic.View):
+    """ User activation view """
+
+    def get(self, request, uidb64, token, *args, **kwargs):
+        try:
+            # user does not exists
+            uid = force_text(urlsafe_base64_decode(uidb64))
+            user = User.objects.get(pk=uid)
+        except (TypeError, ValueError, OverflowError, User.DoesNotExist):
+            user = None
+
+        if user is not None and token_generator.check_token(user, token):
+            user.is_active = True
+            user.save()
+            login(request, user)
+            messages.success(request, 'Your account activated successfully!')
+
+            return redirect('index')
+
+        messages.warning(request, ['Invalid confirmation link detected'])
+        return redirect('login')

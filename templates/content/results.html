@@ -1,0 +1,235 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block content %}
+
+    <div class="container">
+        <ul class="nav nav-tabs bg-dark font-light" id="myTab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="year-i-tab" data-bs-toggle="tab" data-bs-target="#year-i" type="button" role="tab" aria-controls="home" aria-selected="true">
+                    Year I
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="year-ii-tab" data-bs-toggle="tab" data-bs-target="#year-ii" type="button" role="tab" aria-controls="profile" aria-selected="false">
+                    Year II
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="year-iii-tab" data-bs-toggle="tab" data-bs-target="#year-iii" type="button" role="tab" aria-controls="contact" aria-selected="false">
+                    Year III
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="year-iv-tab" data-bs-toggle="tab" data-bs-target="#year-iv" type="button" role="tab" aria-controls="contact" aria-selected="false">
+                    Year III
+                </button>
+            </li>
+        </ul>
+
+        <!-- tab content -->
+        <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active" id="year-i" role="tabpanel" aria-labelledby="home-tab">
+                <h1 class="display-6">Year I</h1>
+
+                <table class="table table-hover text-center">
+                    <thead>
+                    <tr>
+                        <th scope="col">Semester I</th>
+                        <th scope="col">Semester II</th>
+                        <th scope="col">Average GPA</th>
+
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td> 3.336</th>
+                        <td> 3.336</td>
+                        <td> 3.336</td>
+
+                    </tr>
+                    </tbody>
+                </table>
+
+                <ul class="nav nav-pills nav-justified mb-3" id="pills-tab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active border" id="semester-i-tab" data-bs-toggle="pill" data-bs-target="#semester-i" type="button" role="tab" aria-controls="pills-home" aria-selected="true">
+                            Semester I
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link border" id="semester-ii-tab" data-bs-toggle="pill" data-bs-target="#semester-ii" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">
+                            Semester II
+                        </button>
+                    </li>
+                </ul>
+                <!-- tab content -->
+                <div class="tab-content" id="pills-tabContent">
+                    <div class="tab-pane fade show active" id="semester-i" role="tabpanel" aria-labelledby="pills-home-tab">
+                        <table class="table table-hover">
+                            <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Subject Code</th>
+                                <th scope="col">Subject</th>
+                                <th scope="col">Credits</th>
+                                <th scope="col">Result</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td> 1</td>
+                                <td> PST1111</th>
+                                <td> Subject Name 1</td>
+                                <td> 1</td>
+                                <td> A+</td>
+                            </tr>
+                            <tr>
+                                <td> 1</td>
+                                <td> PST1112</th>
+                                <td> Subject Name 2</td>
+                                <td> 1</td>
+                                <td> A</td>
+                            </tr>
+                            <tr>
+                                <td> 1</td>
+                                <td> PST1113</th>
+                                <td> Subject Name 3</td>
+                                <td> 1</td>
+                                <td> A-</td>
+                            </tr>
+
+                            <tr class="table-active">
+                                <th class="text-center" colspan="4"> GPA</th>
+                                <th> 3.777</th>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="tab-pane fade" id="semester-ii" role="tabpanel" aria-labelledby="pills-profile-tab">
+                         <table class="table table-hover">
+                            <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Subject Code</th>
+                                <th scope="col">Subject</th>
+                                <th scope="col">Credits</th>
+                                <th scope="col">Result</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td> 1</td>
+                                <td> PST1111</th>
+                                <td> Subject Name 1</td>
+                                <td> 1</td>
+                                <td> A+</td>
+                            </tr>
+                            <tr>
+                                <td> 1</td>
+                                <td> PST1112</th>
+                                <td> Subject Name 2</td>
+                                <td> 1</td>
+                                <td> A</td>
+                            </tr>
+                            <tr>
+                                <td> 1</td>
+                                <td> PST1113</th>
+                                <td> Subject Name 3</td>
+                                <td> 1</td>
+                                <td> A-</td>
+                            </tr>
+
+                            <tr class="table-active">
+                                <th class="text-center" colspan="4"> GPA</th>
+                                <th> 3.777</th>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <!-- end-tab content -->
+            </div>
+            <div class="tab-pane fade" id="year-ii" role="tabpanel" aria-labelledby="profile-tab">
+                <h1 class="display-6">Year II</h1>
+                <ul class="nav nav-pills nav-justified mb-3" id="pills-tab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="semester-i-tab" data-bs-toggle="pill" data-bs-target="#semester-i" type="button" role="tab" aria-controls="pills-home" aria-selected="true">
+                            Semester I
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="semester-ii-tab" data-bs-toggle="pill" data-bs-target="#semester-ii" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">
+                            Semester II
+                        </button>
+                    </li>
+                </ul>
+                <!-- tab content -->
+                <div class="tab-content" id="pills-tabContent">
+                    <div class="tab-pane fade show active" id="semester-i" role="tabpanel" aria-labelledby="pills-home-tab">
+                        Semester I
+                    </div>
+                    <div class="tab-pane fade" id="semester-ii" role="tabpanel" aria-labelledby="pills-profile-tab">
+                        Semester II
+                    </div>
+                </div>
+                <!-- end-tab content -->
+            </div>
+            <div class="tab-pane fade" id="year-iii" role="tabpanel" aria-labelledby="contact-tab">
+                <h1 class="display-6">Year III</h1>
+                <ul class="nav nav-pills nav-justified mb-3" id="pills-tab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="semester-i-tab" data-bs-toggle="pill" data-bs-target="#semester-i" type="button" role="tab" aria-controls="pills-home" aria-selected="true">
+                            Semester I
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="semester-ii-tab" data-bs-toggle="pill" data-bs-target="#semester-ii" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">
+                            Semester II
+                        </button>
+                    </li>
+                </ul>
+                <!-- tab content -->
+                <div class="tab-content" id="pills-tabContent">
+                    <div class="tab-pane fade show active" id="semester-i" role="tabpanel" aria-labelledby="pills-home-tab">
+                        Semester I
+                    </div>
+                    <div class="tab-pane fade" id="semester-ii" role="tabpanel" aria-labelledby="pills-profile-tab">
+                        Semester II
+                    </div>
+                </div>
+                <!-- end-tab content -->
+            </div>
+            <div class="tab-pane fade" id="year-iv" role="tabpanel" aria-labelledby="contact-tab">
+                <h1 class="display-6">Year IV</h1>
+
+                <ul class="nav nav-pills nav-justified mb-3" id="pills-tab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="semester-i-tab" data-bs-toggle="pill" data-bs-target="#semester-i" type="button" role="tab" aria-controls="pills-home" aria-selected="true">
+                            Semester I
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="semester-ii-tab" data-bs-toggle="pill" data-bs-target="#semester-ii" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">
+                            Semester II
+                        </button>
+                    </li>
+                </ul>
+                <!-- tab content -->
+                <div class="tab-content" id="pills-tabContent">
+                    <div class="tab-pane fade show active" id="semester-i" role="tabpanel" aria-labelledby="pills-home-tab">
+                        Semester I
+                    </div>
+                    <div class="tab-pane fade" id="semester-ii" role="tabpanel" aria-labelledby="pills-profile-tab">
+                        Semester II
+                    </div>
+                </div>
+                <!-- end-tab content -->
+            </div>
+        </div>
+        <!-- end-tab content -->
+    </div>
+
+
+{% endblock %}
