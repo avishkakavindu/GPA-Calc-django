@@ -11,10 +11,19 @@ from gpa_webservice.forms import SignUpForm
 from gpa_webservice.models import User
 from gpa_webservice.utils import Util, token_generator
 from django.contrib.auth import login
+from gpa_webservice.models import *
 
 
 class HomeView(generic.TemplateView):
     template_name = 'content/results.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['results_1st_year'] = SubjectMark.objects.filter(subject__year=Subject.YEAR_1).order_by('subject__subject_code')
+        context['results_2nd_year'] = SubjectMark.objects.filter(subject__year=Subject.YEAR_2).order_by('subject__subject_code')
+        context['results_3rd_year'] = SubjectMark.objects.filter(subject__year=Subject.YEAR_3).order_by('subject__subject_code')
+        context['results_4th_year'] = SubjectMark.objects.filter(subject__year=Subject.YEAR_4).order_by('subject__subject_code')
+        return context
 
 
 class SignUpView(generic.CreateView):

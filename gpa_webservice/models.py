@@ -50,7 +50,7 @@ class Subject(models.Model):
     semester = models.PositiveSmallIntegerField(choices=SEMESTER, default=SEMESTER_1)
 
     def __str__(self):
-        return '{} {}'.format(self.subject_code, self.name)
+        return '{} {} {} {}'.format(self.subject_code, self.name, self.get_year_display(), self.get_semester_display())
 
 
 class User(AbstractUser):
@@ -84,8 +84,10 @@ class Grade(models.Model):
     GRADE = [
         (AP, 'A+'),
         (A, 'A'),
+        (AM, 'A-'),
         (BP, 'B+'),
         (B, 'B'),
+        (BM, 'B-'),
         (CP, 'C+'),
         (C, 'C'),
         (CM, 'C-'),
@@ -95,12 +97,13 @@ class Grade(models.Model):
         (ABSENT, 'Absent')
     ]
 
-    faculty = models.ForeignKey(Faculty, null=False, blank=False, on_delete=models.CASCADE)
+    faculty = models.ForeignKey(Faculty, null=False, blank=False, on_delete=models.DO_NOTHING)
+    department = models.ForeignKey(Department, null=False, blank=False, on_delete=models.DO_NOTHING)
     grade = models.PositiveSmallIntegerField(choices=GRADE, default=ABSENT, null=False, blank=False)
     gpa_point = models.DecimalField(max_digits=3, decimal_places=2, null=False, blank=False)
 
     def __str__(self):
-        return '{} - {}'.format(self.grade, self.faculty)
+        return '{}'.format(self.get_grade_display())
 
 
 class SubjectMark(models.Model):
